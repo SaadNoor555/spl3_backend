@@ -6,5 +6,6 @@ router = routers.DefaultRouter()
 
 urlpatterns = [
     path('signup/', signup, name='signup'),
+    path('login/', signin, name='signin'),
 ]
 
