@@ -6,10 +6,10 @@ import numpy as np
 from authentication.models import *
 # Create your views here.
 
-def recognize_user(request):
+def recognize_user(request, user):
     if request.user.is_authenticated:
         video_capture = cv2.VideoCapture(0)
-        cur_user = User.objects.get(username=request.user.username)
+        cur_user = User.objects.get(username=user)
         face_encoding = cur_user.face
         print(face_encoding)
         return JsonResponse('testing', safe=False)

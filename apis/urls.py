@@ -5,6 +5,6 @@ from .views import *
 router = routers.DefaultRouter()
 
 urlpatterns = [
-    path('recognize/', recognize_user),
+    path('recognize/<str:username>', recognize_user),
 ]
 

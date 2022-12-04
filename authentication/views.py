@@ -8,8 +8,10 @@ from passlib.handlers.django import django_pbkdf2_sha256
 
 # Create your views here.
 def signup(request):
+    print('yo')
     if request.method == 'POST':
         form = json.loads(request.body)
+        print(form)
         username = form['username']
         password = form['password']
         password = make_password(password)
