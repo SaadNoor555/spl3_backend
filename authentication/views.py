@@ -18,9 +18,9 @@ def signup(request):
         img = form['img_dir']
         userimg = face_recognition.load_image_file(img)
         user_encoding = face_recognition.face_encodings(userimg)[0]
-        cur_user = User.objects.get(username=username)
-        if cur_user!=None:
-            return JsonResponse('Username Exists', safe=False)
+        # cur_user = User.objects.get(username=username)
+        # if cur_user!=None:
+        #     return JsonResponse('Username Exists', safe=False)
         new_user = User.objects.create(username=username, password=password, face=user_encoding, img=img)
         new_user.save()
         return JsonResponse('User saved', safe=False)
